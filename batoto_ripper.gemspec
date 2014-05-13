@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = BatotoRipper::VERSION
   spec.authors       = ["Eric Nelson"]
   spec.email         = ["eric@clean-logix.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Batoto manga ripping library}
+  spec.description   = %q{This gem is intended to be used with my ripper application as a way to abstract different comic sources away from the models that contain them}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,6 +18,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "rest-client"
+
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "vcr"
 end
