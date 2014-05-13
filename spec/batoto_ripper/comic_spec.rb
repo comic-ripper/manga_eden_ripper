@@ -21,7 +21,8 @@ describe BatotoRipper::Comic, vcr: true do
     it "gives chapters with the correct information" do
       expect(parser.chapters[0]).to eql ({
         text: "Ch.0: [Oneshot]",
-        url: "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs"
+        url: "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs",
+        date: Time.parse("07 March 2012 - 05:32 AM +00:00")
       })
     end
   end

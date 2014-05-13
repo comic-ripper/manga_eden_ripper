@@ -12,12 +12,13 @@ module BatotoRipper
     end
 
     def chapters
-      document.css(".#{language}").map do |row|
+      chapter_rows.map do |row|
         link = row.css("td a")[0]
-
         {
             text: link.text.strip,
-            url: link["href"].strip
+            url: link["href"].strip,
+            # batoto defaults to UTC when you aren't logged in.
+            date: Time.parse(row.css("td")[4].text + " +00:00")
         }
       end
     end
@@ -29,6 +30,10 @@ module BatotoRipper
 
     def document
       @document ||= Nokogiri::HTML(get_page)
+    end
+
+    def chapter_rows
+      document.css(".#{language}")
     end
   end
 end
