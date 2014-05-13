@@ -1,0 +1,3 @@
+module BatotoRipper
+  VERSION = "0.0.1"
+end
