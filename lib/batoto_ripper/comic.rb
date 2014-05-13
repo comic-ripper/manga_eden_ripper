@@ -1,21 +1,34 @@
 require "rest-client"
-
+require "nokogiri"
+require 'pry'
 
 module BatotoRipper
-  # This class gets the index of the comic, and can give you a list of chapters for the comic
   class Comic
+    attr_reader :index_url, :language
 
-    # The URL of the comic index
-    attr_reader :index_url
-
-    # This class is intended to be somewhat immutable, but I might add metadata later
-    def initialize(index_url)
+    def initialize(index_url, language = "lang_English")
       @index_url = index_url
+      @language = language
     end
 
-    # This part actually gets the page
-    def get
-      RestClient.get index_url
+    def chapters
+      document.css(".#{language}").map do |row|
+        link = row.css("td a")[0]
+
+        {
+            text: link.text.strip,
+            url: link["href"].strip
+        }
+      end
+    end
+
+    private
+    def get_page
+      @page ||= RestClient.get index_url
+    end
+
+    def document
+      @document ||= Nokogiri::HTML(get_page)
     end
   end
 end
