@@ -9,7 +9,7 @@ module BatotoRipper
 
     def pages
       page_items.map do |page|
-        {url: page["value"], number: page.text.match(/(\d+)/)[0].to_f}
+        { url: page["value"], number: page.text.match(/(\d+)/)[0].to_f }
       end
     end
 

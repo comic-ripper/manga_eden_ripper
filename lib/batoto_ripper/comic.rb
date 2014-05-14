@@ -14,7 +14,7 @@ module BatotoRipper
     def chapters
       chapter_rows.map do |row|
         link = row.css("td a")[0]
-        { 
+        {
           text: link.text.strip,
           url: link["href"].strip,
           # batoto defaults to UTC when you aren't logged in.

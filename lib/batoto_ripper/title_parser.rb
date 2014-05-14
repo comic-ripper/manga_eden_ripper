@@ -3,7 +3,6 @@ module BatotoRipper
   end
 
   class TitleParser
-
     attr_reader :title
 
     def initialize(title_text)
@@ -31,7 +30,7 @@ module BatotoRipper
 
     def matcher
       match = match_regex.match(title)
-      raise TitleNotMatchedError.new(title) unless match
+      fail TitleNotMatchedError.new(title) unless match
       match
     end
   end

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe BatotoRipper::Chapter, vcr: true do
   subject(:chapter) { BatotoRipper::Chapter.new url: url, text: link_text }
-  let(:link_text) {"Ch.0: [Oneshot]"}
-  let(:url){ "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs" }
+  let(:link_text) { "Ch.0: [Oneshot]" }
+  let(:url) { "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs" }
 
   describe "#pages" do
     it "has the correct number of pages" do
@@ -11,7 +11,7 @@ describe BatotoRipper::Chapter, vcr: true do
     end
 
     it "has unique page numbers" do
-      numbers = chapter.pages.map{|p| p[:number]}
+      numbers = chapter.pages.map { |p| p[:number] }
       expect(numbers).to eql numbers.uniq
     end
   end
