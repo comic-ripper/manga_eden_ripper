@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BatotoRipper::Comic, vcr: true do
-  subject(:parser) { BatotoRipper::Comic.new comic_url }
+  subject(:parser) { BatotoRipper::Comic.new url: comic_url }
   let(:comic_url) { "http://www.batoto.net/comic/_/comics/100-is-too-cheap-r3893" }
 
   describe "#chapters" do
@@ -19,11 +19,11 @@ describe BatotoRipper::Comic, vcr: true do
     end
 
     it "gives chapters with the correct information" do
-      expect(parser.chapters[0]).to eql ({
+      expect(parser.chapters[0]).to eql(
         text: "Ch.0: [Oneshot]",
         url: "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs",
         date: Time.parse("07 March 2012 - 05:32 AM +00:00")
-      })
+      )
     end
   end
 end

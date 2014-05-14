@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BatotoRipper::Chapter, vcr: true do
-  subject(:chapter) { BatotoRipper::Chapter.new url, link_text }
+  subject(:chapter) { BatotoRipper::Chapter.new url: url, text: link_text }
   let(:link_text) {"Ch.0: [Oneshot]"}
   let(:url){ "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs" }
 

@@ -1,10 +1,10 @@
 module BatotoRipper
   class Chapter
-    attr_reader :index_url, :link_text
+    attr_reader :url, :text
 
-    def initialize(url, link_text)
-      @index_url = url
-      @link_text = link_text
+    def initialize(url:, text:, **args)
+      @url = url
+      @text = text
     end
 
     def pages
@@ -20,7 +20,7 @@ module BatotoRipper
     private
 
     def page
-      @page ||= RestClient.get index_url
+      @page ||= RestClient.get url
     end
 
     def document
@@ -32,7 +32,7 @@ module BatotoRipper
     end
 
     def title_parser
-      BatotoRipper::TitleParser.new(link_text)
+      BatotoRipper::TitleParser.new(text)
     end
   end
 end
