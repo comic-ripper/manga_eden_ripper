@@ -14,7 +14,7 @@ module BatotoRipper
     end
 
     def number
-      /^Ch.\s*([\d\.]+(?:-.)?)(?:v\d+?)?\s*\:/.match(link_text)[1]
+      title_parser.chapter
     end
 
     private
@@ -29,6 +29,10 @@ module BatotoRipper
 
     def page_items
       document.css("#page_select").first.css("option")
+    end
+
+    def title_parser
+      BatotoRipper::TitleParser.new(link_text)
     end
   end
 end
