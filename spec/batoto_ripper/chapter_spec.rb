@@ -18,7 +18,9 @@ describe BatotoRipper::Chapter, vcr: true do
 
   describe "#number" do
     before do
-      allow_any_instance_of(BatotoRipper::TitleParser).to receive(:chapter).and_return(:chapter_number)
+      allow_any_instance_of(
+        BatotoRipper::TitleParser
+      ).to receive(:chapter).and_return(:chapter_number)
     end
 
     it "uses TitleParser" do

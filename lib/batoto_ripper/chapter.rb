@@ -2,7 +2,7 @@ module BatotoRipper
   class Chapter
     attr_reader :url, :text
 
-    def initialize(url:, text:, **args)
+    def initialize(url:, text:, **_extra)
       @url = url
       @text = text
     end

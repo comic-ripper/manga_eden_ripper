@@ -24,13 +24,14 @@ module BatotoRipper
     end
 
     private
+
     def match_regex
       /^(?:Vol\.\s*(\d+))?\s*Ch.\s*([\d\.]+(?:-.)?)(?:v\d+?)?\s*\:\s*(.*[^\s])/
     end
 
     def matcher
       match = match_regex.match(title)
-      fail TitleNotMatchedError.new(title) unless match
+      fail TitleNotMatchedError, title unless match
       match
     end
   end

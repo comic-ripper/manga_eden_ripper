@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe BatotoRipper::Comic, vcr: true do
-  subject(:parser) { BatotoRipper::Comic.new url: comic_url }
-  let(:comic_url) { "http://www.batoto.net/comic/_/comics/100-is-too-cheap-r3893" }
+  subject(:parser) { BatotoRipper::Comic.new url: url }
+  let(:url) { "http://www.batoto.net/comic/_/comics/100-is-too-cheap-r3893" }
 
   describe "#chapters" do
     context "There is a single chapter" do
@@ -12,7 +12,7 @@ describe BatotoRipper::Comic, vcr: true do
     end
 
     context "There are many chapters" do
-      let(:comic_url) { "http://www.batoto.net/comic/_/comics/beelzebub-r4" }
+      let(:url) { "http://www.batoto.net/comic/_/comics/beelzebub-r4" }
       it "gets many chapters" do
         expect(parser.chapters.count).to eql 250
       end

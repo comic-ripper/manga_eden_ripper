@@ -6,7 +6,7 @@ module BatotoRipper
   class Comic
     attr_reader :index_url, :language
 
-    def initialize(url:, language: "lang_English", **args)
+    def initialize(url:, language: "lang_English", **_extra)
       @index_url = url
       @language = language
     end

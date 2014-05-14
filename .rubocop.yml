@@ -1,2 +1,8 @@
+inherit_from: rubocop-todo.yml
+
 StringLiterals:
   Enabled: false
+
+AllCops:
+  Exclude:
+    - batoto_ripper.gemspec
