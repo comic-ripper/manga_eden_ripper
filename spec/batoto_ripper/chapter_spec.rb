@@ -41,6 +41,12 @@ describe BatotoRipper::Chapter, vcr: true do
     end
   end
 
+  describe "#title" do
+    it "gets the title" do
+      expect(chapter.title).to eql "[Oneshot]"
+    end
+  end
+
   describe "JSON Serialization / Unserialization" do
     it "will serialize and deserialize into itself" do
       expect(JSON.load(chapter.to_json).url).to eql url

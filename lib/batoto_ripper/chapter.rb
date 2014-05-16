@@ -21,6 +21,10 @@ module BatotoRipper
       title_parser.volume
     end
 
+    def title
+      title_parser.name
+    end
+
     def to_json(*a)
       {
         JSON.create_id => self.class.name,
