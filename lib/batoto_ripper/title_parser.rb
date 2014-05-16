@@ -26,7 +26,7 @@ module BatotoRipper
     private
 
     def match_regex
-      /^(?:Vol\.\s*(\d+))?\s*Ch.\s*([\d\.]+(?:-.)?)(?:v\d+?)?\s*\:?\s*(.*[^\s])/
+      /^(?:Vol\.\s*(\d+))?\s*Ch.\s*([\d\.]+(?:-[\w\d]*)?)(?:v\d+?)?\s*\:?\s*(.*[^\s])/
     end
 
     def matcher
