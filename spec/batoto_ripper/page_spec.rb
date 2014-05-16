@@ -24,9 +24,8 @@ describe BatotoRipper::Page, vcr: true do
     it "will serialize and deserialize into itself" do
       expect(JSON.load(page.to_json).url).to eql url
       expect(JSON.load(page.to_json).number).to eql number
-      expect(JSON.load(page.to_json).image_url).to eql example_image_url
 
-      expect(a_request(:get, url)).to have_been_made.once
+      expect(a_request(:get, url)).to_not have_been_made.once
     end
 
     context "The image_url has been retrieved" do

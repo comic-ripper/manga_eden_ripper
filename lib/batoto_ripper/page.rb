@@ -14,9 +14,9 @@ module BatotoRipper
     def to_json(*a)
       {
         JSON.create_id => self.class.name,
-        url: url,
-        number: number,
-        image_url: image_url
+        url: @url,
+        number: @number,
+        image_url: @image_url
       }.to_json(*a)
     end
 
