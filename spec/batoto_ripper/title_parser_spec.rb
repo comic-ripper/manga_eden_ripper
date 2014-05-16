@@ -18,6 +18,13 @@ describe BatotoRipper::TitleParser do
       end
     end
 
+    context "There is no colon" do
+      let(:title) { "Ch.2 Read Online" }
+      it "will parse the correct chapter number" do
+        expect(parser.chapter).to eql "2"
+      end
+    end
+
     context "The parser has a version 2" do
       let(:title) { "Ch. 1236v2: Reveng of the test" }
       it "will still parse the value" do
