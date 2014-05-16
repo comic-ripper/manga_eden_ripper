@@ -9,12 +9,24 @@ module BatotoRipper
 
     def pages
       page_items.map do |page|
-        { url: page["value"], number: page.text.match(/(\d+)/)[0].to_f }
+        Page.new url: page["value"], number: page.text.match(/(\d+)/)[0].to_f
       end
     end
 
     def number
       title_parser.chapter
+    end
+
+    def to_json(*a)
+      {
+        JSON.create_id => self.class.name,
+        url: url,
+        text: text
+      }.to_json(*a)
+    end
+
+    def self.json_create(data)
+      new(url: data['url'], text: data['text'])
     end
 
     private
