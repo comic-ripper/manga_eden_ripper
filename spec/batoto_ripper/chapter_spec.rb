@@ -21,14 +21,23 @@ describe BatotoRipper::Chapter, vcr: true do
   end
 
   describe "#number" do
-    before do
-      allow_any_instance_of(
-        BatotoRipper::TitleParser
-      ).to receive(:chapter).and_return(:chapter_number)
+    it "uses the right number" do
+      expect(chapter.number).to eql "0"
+    end
+  end
+
+  describe "#volume" do
+    context "there is no volume" do
+      it "is nil" do
+        expect(chapter.volume).to eql nil
+      end
     end
 
-    it "uses TitleParser" do
-      expect(chapter.number).to eql :chapter_number
+    context "there is a volume" do
+      let(:link_text) { "Vol.3 Ch.12: Revenge of the volume." }
+      it "is a number" do
+        expect(chapter.volume).to eql 3
+      end
     end
   end
 
