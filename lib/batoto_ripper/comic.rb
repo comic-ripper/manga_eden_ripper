@@ -17,8 +17,6 @@ module BatotoRipper
         Chapter.new(
           text: link.text.strip,
           url: link["href"].strip,
-          # batoto defaults to UTC when you aren't logged in.
-          date: Time.parse(row.css("td")[4].text + " +00:00")
         )
       end
     end
