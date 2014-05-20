@@ -17,6 +17,7 @@ module BatotoRipper
         Chapter.new(
           text: link.text.strip,
           url: link["href"].strip,
+          translator:row.css('td')[2].text.strip
         )
       end
     end

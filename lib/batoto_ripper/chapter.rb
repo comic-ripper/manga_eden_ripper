@@ -1,10 +1,11 @@
 module BatotoRipper
   class Chapter
-    attr_reader :url, :text
+    attr_reader :url, :text, :translator
 
-    def initialize(url:, text:, **_extra)
+    def initialize(url:, text:, translator:nil, **_extra)
       @url = url
       @text = text
+      @translator = translator
     end
 
     def pages
@@ -29,12 +30,13 @@ module BatotoRipper
       {
         JSON.create_id => self.class.name,
         url: url,
-        text: text
+        text: text,
+        translator: translator
       }.to_json(*a)
     end
 
     def self.json_create(data)
-      new(url: data['url'], text: data['text'])
+      new(url: data['url'], text: data['text'], translator: data['translator'])
     end
 
     private
