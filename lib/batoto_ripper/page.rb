@@ -1,6 +1,6 @@
 module BatotoRipper
   class Page
-    attr_reader :url, :number
+    attr_accessor :url, :number, :image_url
     def initialize url:, number:, image_url:nil, **_args
       @url = url
       @number = number

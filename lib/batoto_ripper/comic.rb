@@ -4,7 +4,7 @@ require 'pry'
 
 module BatotoRipper
   class Comic
-    attr_reader :url, :language
+    attr_accessor :url, :language
 
     def initialize(url:, language: "lang_English", **_extra)
       @url = url
