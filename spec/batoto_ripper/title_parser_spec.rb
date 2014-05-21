@@ -25,6 +25,14 @@ describe BatotoRipper::TitleParser do
       end
     end
 
+    context "There is no . or -" do
+      let(:title) {"Ch.2a: Master Blaster"}
+      it "parses correctly" do
+        expect(parser.chapter).to eql "2a"
+      end
+    end
+
+
     context "chapter ranges" do
       let(:title) { "Vol.1 Ch.1-10: Codex 1-10" }
       it "will parse out the range" do
