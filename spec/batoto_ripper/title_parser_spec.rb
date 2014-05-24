@@ -32,6 +32,13 @@ describe BatotoRipper::TitleParser do
       end
     end
 
+    context "There are parenthesis version" do
+      let(:title) {"Ch.1 (v2): Chapter 1"}
+      it "parses correctly" do
+        expect(parser.chapter).to eql "1"
+      end
+    end
+
 
     context "chapter ranges" do
       let(:title) { "Vol.1 Ch.1-10: Codex 1-10" }
