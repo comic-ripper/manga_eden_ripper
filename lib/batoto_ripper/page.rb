@@ -11,6 +11,10 @@ module BatotoRipper
       @image_url ||= document.css("img#comic_page").first["src"]
     end
 
+    def image
+      @image ||= RestClient.get image_url
+    end
+
     def to_json(*a)
       {
         JSON.create_id => self.class.name,
