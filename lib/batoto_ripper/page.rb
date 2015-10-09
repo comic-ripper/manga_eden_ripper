@@ -1,7 +1,7 @@
 module BatotoRipper
   class Page
     attr_accessor :url, :number, :image_url
-    def initialize url:, number:, image_url:nil, **_args
+    def initialize(url:, number:, image_url:nil, **_args)
       @url = url
       @number = number
       @image_url = image_url
@@ -25,7 +25,11 @@ module BatotoRipper
     end
 
     def self.json_create(data)
-      new(url: data['url'], number: data['number'], image_url: data['image_url'])
+      new(
+        url: data['url'],
+        number: data['number'],
+        image_url: data['image_url']
+      )
     end
 
     private
