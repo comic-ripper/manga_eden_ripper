@@ -1,11 +1,17 @@
 require 'spec_helper'
 
 describe BatotoRipper::Page, vcr: true do
-  subject(:page) { BatotoRipper::Page.new url: url, number: number}
-  let(:url) { "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs/1" }
+  subject(:page) { BatotoRipper::Page.new url: url, number: number }
+
+  let(:url) do
+    "http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs/1"
+  end
+
   let(:number) { 1.0 }
 
-  let(:example_image_url) { "http://img.batoto.net/comics/2012/03/07/1/read4f56f30a7a3b9/img000001.png" }
+  let(:example_image_url) do
+    "http://img.batoto.net/comics/2012/03/07/1/read4f56f30a7a3b9/img000001.png"
+  end
 
   describe "#image_url" do
     it "gets the image url" do
@@ -19,7 +25,6 @@ describe BatotoRipper::Page, vcr: true do
     end
   end
 
-
   describe "JSON Serialization / Unserialization" do
     it "will serialize and deserialize into itself" do
       expect(JSON.load(page.to_json).url).to eql url
@@ -30,7 +35,7 @@ describe BatotoRipper::Page, vcr: true do
 
     context "The image_url has been retrieved" do
       subject(:page) do
-         BatotoRipper::Page.new url: url, number: number, image_url:image_url
+        BatotoRipper::Page.new url: url, number: number, image_url: image_url
       end
 
       let(:image_url) { "Not a real image" }
@@ -41,5 +46,4 @@ describe BatotoRipper::Page, vcr: true do
       end
     end
   end
-
 end

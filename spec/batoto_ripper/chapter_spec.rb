@@ -15,7 +15,7 @@ describe BatotoRipper::Chapter, vcr: true do
     end
 
     it "has unique page numbers" do
-      numbers = chapter.pages.map &:number
+      numbers = chapter.pages.map(&:number)
       expect(numbers).to eql numbers.uniq
     end
   end

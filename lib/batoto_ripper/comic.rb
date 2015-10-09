@@ -17,17 +17,21 @@ module BatotoRipper
         Chapter.new(
           text: link.text.strip,
           url: link["href"].strip,
-          translator:row.css('td')[2].text.strip
+          translator: row.css('td')[2].text.strip
         )
       end
     end
 
-    def to_json(*a)
+    def to_json(*options)
+      as_json.to_json(*options)
+    end
+
+    def as_json(*_options)
       {
         JSON.create_id => self.class.name,
         url: url,
         language: language
-      }.to_json(*a)
+      }
     end
 
     def self.json_create(data)

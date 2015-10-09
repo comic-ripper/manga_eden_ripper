@@ -26,19 +26,18 @@ describe BatotoRipper::TitleParser do
     end
 
     context "There is no . or -" do
-      let(:title) {"Ch.2a: Master Blaster"}
+      let(:title) { "Ch.2a: Master Blaster" }
       it "parses correctly" do
         expect(parser.chapter).to eql "2a"
       end
     end
 
     context "There are parenthesis version" do
-      let(:title) {"Ch.1 (v2): Chapter 1"}
+      let(:title) { "Ch.1 (v2): Chapter 1" }
       it "parses correctly" do
         expect(parser.chapter).to eql "1"
       end
     end
-
 
     context "chapter ranges" do
       let(:title) { "Vol.1 Ch.1-10: Codex 1-10" }
