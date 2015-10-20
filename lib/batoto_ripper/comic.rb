@@ -1,9 +1,20 @@
 require 'rest-client'
 require 'nokogiri'
-require 'pry'
+require 'uri'
 
 module BatotoRipper
   class Comic
+
+    VALID_HOSTS = [
+      /bato.to\z/,
+      /batoto.net\z/
+    ]
+
+    def self.applies? url
+      uri = URI.parse(url)
+      VALID_HOSTS.any?{|pattern| pattern.match uri.host }
+    end
+
     attr_accessor :url, :language
 
     def initialize(url:, language: 'lang_English', **_extra)

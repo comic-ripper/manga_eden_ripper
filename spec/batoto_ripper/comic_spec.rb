@@ -6,6 +6,16 @@ describe BatotoRipper::Comic, vcr: true do
     'http://www.batoto.net/comic/_/comics/100-is-too-cheap-r3893'
   end
 
+  describe ".applies?" do
+    it "accepts valid urls" do
+      expect(BatotoRipper::Comic.applies?(url)).to be true
+    end
+    it "rejects invalid urls" do
+      expect(BatotoRipper::Comic.applies?( "http://google.com")).to be false
+      expect(BatotoRipper::Comic.applies?( "batoto")).to be false
+    end
+  end
+
   describe '#chapters' do
     it 'creates a Chapter' do
       expect(comic.chapters.first).to be_a BatotoRipper::Chapter
