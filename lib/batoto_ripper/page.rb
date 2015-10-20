@@ -8,7 +8,7 @@ module BatotoRipper
     end
 
     def image_url
-      @image_url ||= document.css("img#comic_page").first["src"]
+      @image_url ||= document.css('img#comic_page').first['src']
     end
 
     def image

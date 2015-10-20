@@ -10,7 +10,7 @@ module BatotoRipper
 
     def pages
       page_items.map do |page|
-        Page.new url: page["value"], number: page.text.match(/(\d+)/)[0].to_f
+        Page.new url: page['value'], number: page.text.match(/(\d+)/)[0].to_f
       end
     end
 
@@ -50,7 +50,7 @@ module BatotoRipper
     end
 
     def page_items
-      document.css("#page_select").first.css("option")
+      document.css('#page_select').first.css('option')
     end
 
     def title_parser

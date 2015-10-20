@@ -1,22 +1,22 @@
-require "rest-client"
-require "nokogiri"
+require 'rest-client'
+require 'nokogiri'
 require 'pry'
 
 module BatotoRipper
   class Comic
     attr_accessor :url, :language
 
-    def initialize(url:, language: "lang_English", **_extra)
+    def initialize(url:, language: 'lang_English', **_extra)
       @url = url
       @language = language
     end
 
     def chapters
       chapter_rows.map do |row|
-        link = row.css("td a")[0]
+        link = row.css('td a')[0]
         Chapter.new(
           text: link.text.strip,
-          url: link["href"].strip,
+          url: link['href'].strip,
           translator: row.css('td')[2].text.strip
         )
       end

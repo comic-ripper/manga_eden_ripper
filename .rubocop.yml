@@ -1,8 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
-StringLiterals:
-  Enabled: false
-
 Metrics/LineLength:
   Max: 80
   AllowURI: true
@@ -10,6 +7,3 @@ Metrics/LineLength:
     - http
     - https
 
-AllCops:
-  Exclude:
-    - batoto_ripper.gemspec
