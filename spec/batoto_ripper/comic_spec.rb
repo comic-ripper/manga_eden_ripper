@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe BatotoRipper::Comic, vcr: true do
+describe BatotoRipper::Comic, vcr: true, record: :once do
   subject(:comic) { BatotoRipper::Comic.new url: url }
   let(:url) do
-    'http://www.batoto.net/comic/_/comics/100-is-too-cheap-r3893'
+    'https://bato.to/comic/_/comics/100-is-too-cheap-r3893'
   end
 
-  describe ".applies?" do
-    it "accepts valid urls" do
+  describe '.applies?' do
+    it 'accepts valid urls' do
       expect(BatotoRipper::Comic.applies?(url)).to be true
     end
-    it "rejects invalid urls" do
-      expect(BatotoRipper::Comic.applies?( "http://google.com")).to be false
-      expect(BatotoRipper::Comic.applies?( "batoto")).to be false
+    it 'rejects invalid urls' do
+      expect(BatotoRipper::Comic.applies?('http://google.com')).to be false
+      expect(BatotoRipper::Comic.applies?('batoto')).to be false
     end
   end
 
@@ -28,14 +28,14 @@ describe BatotoRipper::Comic, vcr: true do
     end
 
     context 'There are many chapters' do
-      let(:url) { 'http://www.batoto.net/comic/_/comics/beelzebub-r4' }
+      let(:url) { 'http://bato.to/comic/_/medaka-box-r49' }
       it 'gets many chapters' do
-        expect(comic.chapters.count).to eql 250
+        expect(comic.chapters.count).to eql 206
       end
     end
 
     let(:first_chapter_url) do
-      'http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs'
+      'http://bato.to/reader#4aba6fc934a8d6c2'
     end
 
     it 'gives chapters with the correct information' do

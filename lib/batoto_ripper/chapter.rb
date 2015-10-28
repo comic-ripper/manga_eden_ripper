@@ -10,7 +10,7 @@ module BatotoRipper
 
     def pages
       page_items.map do |page|
-        Page.new url: page['value'], number: page.text.match(/(\d+)/)[0].to_f
+        Page.new url: page['value']
       end
     end
 
@@ -39,14 +39,18 @@ module BatotoRipper
       new(url: data['url'], text: data['text'], translator: data['translator'])
     end
 
+    def id
+      URI.parse(url).fragment.split('_')[0]
+    end
+
     private
 
     def page
-      @page ||= RestClient.get url
+      @page ||= BatotoRipper.session.get "https://bato.to/areader?id=#{id}&p=1", [], url
     end
 
     def document
-      @document ||= Nokogiri::HTML(page)
+      @document ||= Nokogiri::HTML(page.content)
     end
 
     def page_items

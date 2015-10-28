@@ -23,7 +23,7 @@ DESC
 
   spec.required_ruby_version = '~> 2.2.3'
 
-  spec.add_runtime_dependency 'rest-client'
+  spec.add_runtime_dependency 'mechanize'
   spec.add_runtime_dependency 'nokogiri'
 
   spec.add_development_dependency 'bundler', '~> 1.5'
