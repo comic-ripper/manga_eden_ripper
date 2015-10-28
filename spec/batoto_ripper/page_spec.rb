@@ -4,13 +4,13 @@ describe BatotoRipper::Page, vcr: true do
   subject(:page) { BatotoRipper::Page.new url: url, number: number }
 
   let(:url) do
-    'http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs/1'
+    'http://bato.to/reader#4aba6fc934a8d6c2_1'
   end
 
   let(:number) { 1.0 }
 
   let(:example_image_url) do
-    'http://img.batoto.net/comics/2012/03/07/1/read4f56f30a7a3b9/img000001.png'
+    'http://img.bato.to/comics/2012/03/07/1/read4f56f30a7a3b9/img000001.png'
   end
 
   describe '#image_url' do
@@ -18,10 +18,15 @@ describe BatotoRipper::Page, vcr: true do
       expect(page.image_url).to eql example_image_url
     end
 
+    # It requests the partial request page instead now, since they reader is split out
+    let(:partial_page) do
+      "https://bato.to/areader?id=4aba6fc934a8d6c2&p=1"
+    end
+
     it 'caches the image url / page' do
       page.image_url
       page.image_url
-      expect(a_request(:get, url)).to have_been_made.once # and only once
+      expect(a_request(:get, partial_page)).to have_been_made.once # and only once
     end
   end
 

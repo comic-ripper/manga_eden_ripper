@@ -1,18 +1,16 @@
-require 'rest-client'
 require 'nokogiri'
 require 'uri'
 
 module BatotoRipper
   class Comic
-
     VALID_HOSTS = [
       /bato.to\z/,
       /batoto.net\z/
     ]
 
-    def self.applies? url
+    def self.applies?(url)
       uri = URI.parse(url)
-      VALID_HOSTS.any?{|pattern| pattern.match uri.host }
+      VALID_HOSTS.any? { |pattern| pattern.match uri.host }
     end
 
     attr_accessor :url, :language
@@ -52,11 +50,11 @@ module BatotoRipper
     private
 
     def page
-      @page ||= RestClient.get url
+      @page ||= BatotoRipper.session.get(url)
     end
 
     def document
-      @document ||= Nokogiri::HTML(page)
+      @document ||= Nokogiri::HTML(page.content)
     end
 
     def chapter_rows

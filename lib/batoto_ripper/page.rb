@@ -1,9 +1,8 @@
 module BatotoRipper
   class Page
-    attr_accessor :url, :number, :image_url
-    def initialize(url:, number:, image_url:nil, **_args)
+    attr_accessor :url, :image_url
+    def initialize(url:, image_url:nil, **_args)
       @url = url
-      @number = number
       @image_url = image_url
     end
 
@@ -12,14 +11,21 @@ module BatotoRipper
     end
 
     def image
-      @image ||= RestClient.get image_url
+      @image ||= BatotoRipper.session.get image_url
+    end
+
+    def chapter_id
+      @chapter_id ||= URI.parse(url).fragment.split('_')[0]
+    end
+
+    def number
+      @number ||= URI.parse(url).fragment.split('_')[1].to_f
     end
 
     def to_json(*a)
       {
         JSON.create_id => self.class.name,
         url: @url,
-        number: @number,
         image_url: @image_url
       }.to_json(*a)
     end
@@ -27,7 +33,6 @@ module BatotoRipper
     def self.json_create(data)
       new(
         url: data['url'],
-        number: data['number'],
         image_url: data['image_url']
       )
     end
@@ -35,11 +40,11 @@ module BatotoRipper
     private
 
     def page
-      @page ||= RestClient.get url
+      @page ||= BatotoRipper.session.get "https://bato.to/areader?id=#{chapter_id}&p=#{number.to_i}", [], url
     end
 
     def document
-      @document ||= Nokogiri::HTML(page)
+      @document ||= Nokogiri::HTML(page.content)
     end
   end
 end

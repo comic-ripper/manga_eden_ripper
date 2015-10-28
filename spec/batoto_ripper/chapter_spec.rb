@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe BatotoRipper::Chapter, vcr: true do
+describe BatotoRipper::Chapter, vcr: true, record: :once do
   subject(:chapter) { BatotoRipper::Chapter.new url: url, text: link_text }
   let(:link_text) { 'Ch.0: [Oneshot]' }
-  let(:url) { 'http://www.batoto.net/read/_/88615/100-is-too-cheap_by_peebs' }
+  let(:url) { 'http://bato.to/reader#4aba6fc934a8d6c2' }
 
   describe '#pages' do
     it 'creates a Page' do
