@@ -4,9 +4,10 @@ require 'uri'
 module MangaEdenRipper
   class Comic
     VALID_HOSTS = [
-      /bato.to\z/,
-      /batoto.net\z/
+      /mangaeden.com\z/
     ]
+
+    MANGA_INFO_URL = 'https://www.mangaeden.com/api/manga/:id'
 
     def self.applies?(url)
       uri = URI.parse(url)
@@ -15,50 +16,47 @@ module MangaEdenRipper
 
     attr_accessor :url, :language
 
-    def initialize(url:, language: 'lang_English', **_extra)
+    def initialize(url:, manga_eden_id:nil, **_extra)
       @url = url
-      @language = language
+      @manga_eden_id = manga_eden_id
     end
 
     def chapters
-      chapter_rows.map do |row|
-        link = row.css('td a')[0]
-        Chapter.new(
-          text: link.text.strip,
-          url: link['href'].strip,
-          translator: row.css('td')[2].text.strip
-        )
+      info['chapters'].map do |number, _ts, name, id|
+        Chapter.new(number: number, name: name, id: id)
       end
     end
 
     def to_json(*options)
-      as_json.to_json(*options)
-    end
-
-    def as_json(*_options)
       {
         JSON.create_id => self.class.name,
         url: url,
-        language: language
-      }
+        manga_eden_id: @manga_eden_id
+      }.to_json(*options)
     end
 
     def self.json_create(data)
-      new(url: data['url'], language: data['language'])
+      new(
+        url: data['url'],
+        manga_eden_id: data['manga_eden_id']
+      )
     end
 
-    private
-
-    def page
-      @page ||= MangaEdenRipper.session.get(url)
+    # private
+    def info
+      @me_info ||= JSON.parse(
+        MangaEdenRipper.session.get(
+          MANGA_INFO_URL.gsub(':id', manga_eden_id)
+        ).body
+      )
     end
 
-    def document
-      @document ||= Nokogiri::HTML(page.content)
+    def title_alias
+      URI.parse(url).path.match(%r{/en/en-manga/([-\w]+)})[1]
     end
 
-    def chapter_rows
-      document.css(".#{language}")
+    def manga_eden_id
+      MangaEdenRipper.directory.find_by_alias(title_alias)['i']
     end
   end
 end

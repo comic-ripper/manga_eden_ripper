@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://bato.to/areader?id=4aba6fc934a8d6c2&p=1
+    uri: https://www.mangaeden.com/api/chapter/56261ec8719a167d351d3d98/
     body:
       encoding: US-ASCII
       string: ''
@@ -18,32 +18,9 @@ http_interactions:
       Accept-Language:
       - en-us,en;q=0.5
       Cookie:
-      - coppa=0; ipsconnect_d8874f8d538b1279c8106e636bf7afe9=1; member_id=2603; pass_hash=787ed51183706dec40f097444ad86250;
-        session_id=63ab58759805fb2701dde57f6badda34
+      - __cfduid=d8b404292916ba63db649ac5e7e3b2b861446588957; session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDng.zlYb2xq_Fk4mY8zMlubxPqrjOio
       Host:
-      - bato.to
-      Referer:
-      - !ruby/object:URI::HTTP
-        scheme: http
-        user: 
-        password: 
-        host: bato.to
-        port: 80
-        path: "/reader"
-        query: 
-        opaque: 
-        fragment: 
-        parser: !ruby/object:URI::RFC3986_Parser
-          regexp:
-            :SCHEME: !ruby/regexp /\A[A-Za-z][A-Za-z0-9+\-.]*\z/
-            :USERINFO: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=A-Z_a-z~])*\z/
-            :HOST: !ruby/regexp /\A(?:(?<IP-literal>\[(?:(?<IPv6address>(?:\h{1,4}:){6}(?<ls32>\h{1,4}:\h{1,4}|(?<IPv4address>(?<dec-octet>[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]|\d)\.\g<dec-octet>\.\g<dec-octet>\.\g<dec-octet>))|::(?:\h{1,4}:){5}\g<ls32>|\h{,4}::(?:\h{1,4}:){4}\g<ls32>|(?:(?:\h{1,4}:)?\h{1,4})?::(?:\h{1,4}:){3}\g<ls32>|(?:(?:\h{1,4}:){,2}\h{1,4})?::(?:\h{1,4}:){2}\g<ls32>|(?:(?:\h{1,4}:){,3}\h{1,4})?::\h{1,4}:\g<ls32>|(?:(?:\h{1,4}:){,4}\h{1,4})?::\g<ls32>|(?:(?:\h{1,4}:){,5}\h{1,4})?::\h{1,4}|(?:(?:\h{1,4}:){,6}\h{1,4})?::)|(?<IPvFuture>v\h+\.[!$&-.0-;=A-Z_a-z~]+))\])|\g<IPv4address>|(?<reg-name>(?:%\h\h|[!$&-.0-9;=A-Z_a-z~])*))\z/
-            :ABS_PATH: !ruby/regexp /\A\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
-            :REL_PATH: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~])+(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
-            :QUERY: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
-            :FRAGMENT: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
-            :OPAQUE: !ruby/regexp /\A(?:[^\/].*)?\z/
-            :PORT: !ruby/regexp /\A[\x09\x0a\x0c\x0d ]*\d*[\x09\x0a\x0c\x0d ]*\z/
+      - www.mangaeden.com
       Connection:
       - keep-alive
       Keep-Alive:
@@ -54,78 +31,46 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.8.0
+      - cloudflare-nginx
       Date:
-      - Wed, 28 Oct 2015 17:41:33 GMT
+      - Tue, 03 Nov 2015 22:15:58 GMT
       Content-Type:
-      - text/html;charset=UTF-8
+      - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Powered-By:
-      - PHP/5.5.28
-      Set-Cookie:
-      - session_id=63ab58759805fb2701dde57f6badda34; path=/; domain=.bato.to; httponly
-      Cache-Control:
-      - no-cache, must-revalidate, max-age=0
-      Expires:
-      - Tue, 27 Oct 2015 17:41:33 GMT
-      Pragma:
-      - no-cache
-      Content-Encoding:
-      - gzip
       Vary:
       - Accept-Encoding
+      Set-Cookie:
+      - session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDng.zlYb2xq_Fk4mY8zMlubxPqrjOio;
+        HttpOnly; Path=/
+      Expires:
+      - Tue, 03 Nov 2015 22:16:58 GMT
+      Cache-Control:
+      - max-age=60
+      - public
+      Content-Encoding:
+      - gzip
+      Cf-Ray:
+      - 23fb70dd61252591-ORD
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-        mxcmhdkyN62adPpZ1BvyruAWYYBNUSdjD4tSlDntpFQ49w7uuA5Z5L+REtTy
-        /WEP4zfhfPz++nZ6cze7ubx+9+GP2fWff7yd3sx+n95MLaQW8Vbn3JZbvd/K
-        2JkuVQNoBHuVeku5pdEbWwN5gNXOPLbO3afVpIPq5eFvYTHeWth3VHyaRB9e
-        O9te+ssmmm9gUN5kVYm3tnS1SbT/38/12sn7bqukhwY6HDW0RhtPaEUrzTrY
-        S7adYVvkVmGwxXPY6zSHN+zcl8WQCM4dNXg2vNkgt7MSSfxjqKtmbmG5n0Ew
-        54ZBsB+8nEK4O+h7ZOgOuuc/i0LumxdO9AIKtbfU0bGcfCwnH8vJx3LysZx8
-        LCcfy8nHcvKxnHwsJx/Lycdy8rGcfCwnH8vJx3LyP1ZO1ucYpbUuEZ5IEzib
-        tdQ1UscZffrl6t3l3eWnDWRSvTFK6T16r0srF1t9HVAd+s3vvD21lItak8+f
-        N6VOpeTkWUuQLFHX26DTyXOpeVLNKv3v0ODnRYBaUsTDMqGp6CirS3HPvsaX
-        Ipo1/w2qwE6AlDAAAA==
+        H4sIAAAAAAAAA5WUy6ocRwyG936K4ayNWyqpqqS8SshCpYtJIMGQZci7RyfY
+        M/FgGMIwM9WL7q//i/TXh9vt7dff7XP++fbT7ee+un39vd1wfPx6egO9QAkt
+        HJD3nKpxoniEjiPABGZjLFTUgSyZGlnrrGUWn7788fnt24MU+NsRCeDf4y8f
+        v6fincp8MbPJhnVsqjGv2MR+DG0HzaC92EDmGgdmDrRhyaB9x3dU0ddUuFPV
+        L/V10Mgw0n2ADgsbK0pFYjieuWpxUmGerSAZdMrj7Cet8Iqqd+jJ66SxmNS2
+        A7kH5KzUqR48UdZ03cPkFLT6sk2oLB5x7AlKr6ByhxJdRB1fYRWORGbY2wPO
+        otmKBFe6QJInHztVge1LlLl9D0Whlwbvh795adIaQ3QOl1Fl1seYLrFcm0wg
+        7UTnCBgWbXWrnJgw/m+q6w61fdkuN0JeaCezteEgqG5SBxndYaIlkbLJV+Fm
+        H+8eLH+qksgr6LxDBa52N0n3yeoepSvEAdrWloqTg4R6LuwCEWh17P2/Om19
+        CnW9gvLD3nFpo4h5jxbYSe62e1Nt3P32Zj4WvNfbzffs0Ptje2VlPtn7sr70
+        mFS4GHgkG25Km10WxdjByl1mkeKzT09vmHSQZdzNSjLPMZ+g+xX0sZSqrirp
+        QdxuS6En1WvQbFHqdWZsPLtrJLS5IsHT5zLs4j0VSQFfQR87KeQKkd5KnRJP
+        AKgk4TFFK6ZyMI3yM8ECJ6v0y+H7lKpmffrty3+UPraD/Jj52EhHriNMraId
+        PlzZrRmE1MYGH5w+33N2X2O1F6TsPcULfJE8ufuDHn14//79D6ydnAcIBgAA
     http_version: 
-  recorded_at: Wed, 28 Oct 2015 17:41:33 GMT
+  recorded_at: Tue, 03 Nov 2015 22:15:58 GMT
 recorded_with: VCR 2.9.3

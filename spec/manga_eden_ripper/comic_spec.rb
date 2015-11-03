@@ -3,7 +3,7 @@ require 'spec_helper'
 describe MangaEdenRipper::Comic, vcr: true, record: :once do
   subject(:comic) { MangaEdenRipper::Comic.new url: url }
   let(:url) do
-    'https://bato.to/comic/_/comics/100-is-too-cheap-r3893'
+    'https://www.mangaeden.com/en/en-manga/hajime-no-ippo/'
   end
 
   describe '.applies?' do
@@ -21,26 +21,19 @@ describe MangaEdenRipper::Comic, vcr: true, record: :once do
       expect(comic.chapters.first).to be_a MangaEdenRipper::Chapter
     end
 
-    context 'There is a single chapter' do
+    context 'There are chapters' do
       it 'gets an array of chapters' do
-        expect(comic.chapters.count).to eql 1
+        expect(comic.chapters.count).to eql 1118
       end
     end
 
-    context 'There are many chapters' do
-      let(:url) { 'http://bato.to/comic/_/medaka-box-r49' }
-      it 'gets many chapters' do
-        expect(comic.chapters.count).to eql 206
-      end
-    end
-
-    let(:first_chapter_url) do
-      'http://bato.to/reader#4aba6fc934a8d6c2'
+    let(:first_chapter_id) do
+      '56261ec8719a167d351d3d98'
     end
 
     it 'gives chapters with the correct information' do
-      expect(comic.chapters[0].text).to eql 'Ch.0: [Oneshot]'
-      expect(comic.chapters[0].url).to eql first_chapter_url
+      expect(comic.chapters[0].title).to eql 'Weakness'
+      expect(comic.chapters[0].id).to eql first_chapter_id
     end
   end
 

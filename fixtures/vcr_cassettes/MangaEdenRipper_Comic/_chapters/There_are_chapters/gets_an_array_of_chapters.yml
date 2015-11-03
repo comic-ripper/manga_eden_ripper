@@ -18,7 +18,7 @@ http_interactions:
       Accept-Language:
       - en-us,en;q=0.5
       Cookie:
-      - __cfduid=d8b404292916ba63db649ac5e7e3b2b861446588957; session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDoQ.-L5MyzwyNwQCxH7dmvAMUpjO248
+      - __cfduid=d8b404292916ba63db649ac5e7e3b2b861446588957; session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDog.0gTmipDvG1deTVS08wzkDWwE0TQ
       Host:
       - www.mangaeden.com
       Connection:
@@ -33,7 +33,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Tue, 03 Nov 2015 22:16:01 GMT
+      - Tue, 03 Nov 2015 22:16:02 GMT
       Content-Type:
       - text/html; charset=utf-8
       Transfer-Encoding:
@@ -43,15 +43,15 @@ http_interactions:
       Location:
       - https://www.mangaeden.com/api/manga/4e70ea14c092255ef7004be8/
       Set-Cookie:
-      - session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDoQ.-L5MyzwyNwQCxH7dmvAMUpjO248;
+      - session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDog.0gTmipDvG1deTVS08wzkDWwE0TQ;
         HttpOnly; Path=/
       Expires:
-      - Tue, 03 Nov 2015 22:17:01 GMT
+      - Tue, 03 Nov 2015 22:17:02 GMT
       Cache-Control:
       - max-age=60
       - public
       Cf-Ray:
-      - 23fb70f2125225af-ORD
+      - 23fb70f6b0e2042a-ORD
     body:
       encoding: UTF-8
       string: |-
@@ -60,7 +60,7 @@ http_interactions:
         <h1>Redirecting...</h1>
         <p>You should be redirected automatically to target URL: <a href="https://www.mangaeden.com/api/manga/4e70ea14c092255ef7004be8/">https://www.mangaeden.com/api/manga/4e70ea14c092255ef7004be8/</a>. If not click the link.
     http_version: 
-  recorded_at: Tue, 03 Nov 2015 22:16:01 GMT
+  recorded_at: Tue, 03 Nov 2015 22:16:02 GMT
 - request:
     method: get
     uri: https://www.mangaeden.com/api/manga/4e70ea14c092255ef7004be8/
@@ -79,7 +79,7 @@ http_interactions:
       Accept-Language:
       - en-us,en;q=0.5
       Cookie:
-      - __cfduid=d8b404292916ba63db649ac5e7e3b2b861446588957; session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDoQ.-L5MyzwyNwQCxH7dmvAMUpjO248
+      - __cfduid=d8b404292916ba63db649ac5e7e3b2b861446588957; session=eyJfaWQiOnsiIGIiOiJNalU0T1RkbE1HTmtZakkxTnpNMk56STNZakUyWW1VNE1qVTJNekJrTkdVPSJ9fQ.CRrDog.0gTmipDvG1deTVS08wzkDWwE0TQ
       Host:
       - www.mangaeden.com
       Connection:
@@ -114,7 +114,7 @@ http_interactions:
       Content-Encoding:
       - gzip
       Cf-Ray:
-      - 23fb70f3dacb10f3-ORD
+      - 23fb70f84af42591-ORD
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -538,5 +538,5 @@ http_interactions:
         d+dPXRPVi+36yU+XcPr48PlbXnqmft8+fujZZG3vdHhs//R//x9de09KxpcB
         AA==
     http_version: 
-  recorded_at: Tue, 03 Nov 2015 22:16:01 GMT
+  recorded_at: Tue, 03 Nov 2015 22:16:02 GMT
 recorded_with: VCR 2.9.3

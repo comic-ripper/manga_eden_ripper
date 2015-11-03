@@ -1,9 +1,13 @@
 require 'spec_helper'
 
 describe MangaEdenRipper::Chapter, vcr: true, record: :once do
-  subject(:chapter) { MangaEdenRipper::Chapter.new url: url, text: link_text }
-  let(:link_text) { 'Ch.0: [Oneshot]' }
-  let(:url) { 'http://bato.to/reader#4aba6fc934a8d6c2' }
+  subject(:chapter) do
+    MangaEdenRipper::Chapter.new id: id, name: name, number: number
+  end
+
+  let(:name) { 'Weakness' }
+  let(:id) { '56261ec8719a167d351d3d98' }
+  let(:number) { 1 }
 
   describe '#pages' do
     it 'creates a Page' do
@@ -11,7 +15,7 @@ describe MangaEdenRipper::Chapter, vcr: true, record: :once do
     end
 
     it 'has the correct number of pages' do
-      expect(chapter.pages.count).to eql 31
+      expect(chapter.pages.count).to eql 13
     end
 
     it 'has unique page numbers' do
@@ -22,7 +26,7 @@ describe MangaEdenRipper::Chapter, vcr: true, record: :once do
 
   describe '#number' do
     it 'uses the right number' do
-      expect(chapter.number).to eql '0'
+      expect(chapter.number).to eql 1
     end
   end
 
@@ -32,25 +36,19 @@ describe MangaEdenRipper::Chapter, vcr: true, record: :once do
         expect(chapter.volume).to eql nil
       end
     end
-
-    context 'there is a volume' do
-      let(:link_text) { 'Vol.3 Ch.12: Revenge of the volume.' }
-      it 'is a number' do
-        expect(chapter.volume).to eql 3
-      end
-    end
   end
 
   describe '#title' do
     it 'gets the title' do
-      expect(chapter.title).to eql '[Oneshot]'
+      expect(chapter.title).to eql 'Weakness'
     end
   end
 
   describe 'JSON Serialization / Unserialization' do
     it 'will serialize and deserialize into itself' do
-      expect(JSON.load(chapter.to_json).url).to eql url
-      expect(JSON.load(chapter.to_json).text).to eql link_text
+      expect(JSON.load(chapter.to_json).name).to eql name
+      expect(JSON.load(chapter.to_json).id).to eql id
+      expect(JSON.load(chapter.to_json).number).to eql number
     end
   end
 end

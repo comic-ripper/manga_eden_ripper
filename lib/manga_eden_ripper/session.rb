@@ -15,18 +15,18 @@ module MangaEdenRipper
     end
 
     def login
-      login_url = 'https://bato.to/forums/index.php?app=core&module=global&section=login'
-      login_form = agent.get(login_url).form(id: 'login')
-      login_form.field('ips_username').value = @username
-      login_form.field('ips_password').value = @password
-      login_form.submit
+      # login_url = 'https://bato.to/forums/index.php?app=core&module=global&section=login'
+      # login_form = agent.get(login_url).form(id: 'login')
+      # login_form.field('ips_username').value = @username
+      # login_form.field('ips_password').value = @password
+      # login_form.submit
     end
   end
 
   def self.session
     @session ||= Session.new(
-      username: ENV['BATOTO_USERNAME'],
-      password: ENV['BATOTO_PASSWORD']
+      username: ENV['MANGA_EDEN_USERNAME'],
+      password: ENV['MANGA_EDEN_PASSWORD']
     )
   end
 end
