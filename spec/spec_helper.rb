@@ -3,7 +3,7 @@ SimpleCov.start do
   add_filter '/spec/'
 end
 
-require 'batoto_ripper'
+require 'manga_eden_ripper'
 
 require 'webmock/rspec'
 require 'vcr'

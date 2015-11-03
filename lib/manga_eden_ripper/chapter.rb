@@ -1,4 +1,4 @@
-module BatotoRipper
+module MangaEdenRipper
   class Chapter
     attr_accessor :url, :text, :translator
 
@@ -46,7 +46,7 @@ module BatotoRipper
     private
 
     def page
-      @page ||= BatotoRipper.session.get "https://bato.to/areader?id=#{id}&p=1", [], url
+      @page ||= MangaEdenRipper.session.get "https://bato.to/areader?id=#{id}&p=1", [], url
     end
 
     def document
@@ -58,7 +58,7 @@ module BatotoRipper
     end
 
     def title_parser
-      BatotoRipper::TitleParser.new(text)
+      MangaEdenRipper::TitleParser.new(text)
     end
   end
 end

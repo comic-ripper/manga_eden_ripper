@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe BatotoRipper::Page, vcr: true do
-  subject(:page) { BatotoRipper::Page.new url: url, number: number }
+describe MangaEdenRipper::Page, vcr: true do
+  subject(:page) { MangaEdenRipper::Page.new url: url, number: number }
 
   let(:url) do
     'http://bato.to/reader#4aba6fc934a8d6c2_1'
@@ -40,7 +40,7 @@ describe BatotoRipper::Page, vcr: true do
 
     context 'The image_url has been retrieved' do
       subject(:page) do
-        BatotoRipper::Page.new url: url, number: number, image_url: image_url
+        MangaEdenRipper::Page.new url: url, number: number, image_url: image_url
       end
 
       let(:image_url) { 'Not a real image' }

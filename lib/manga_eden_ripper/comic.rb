@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'uri'
 
-module BatotoRipper
+module MangaEdenRipper
   class Comic
     VALID_HOSTS = [
       /bato.to\z/,
@@ -50,7 +50,7 @@ module BatotoRipper
     private
 
     def page
-      @page ||= BatotoRipper.session.get(url)
+      @page ||= MangaEdenRipper.session.get(url)
     end
 
     def document

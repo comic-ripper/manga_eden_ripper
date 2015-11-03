@@ -1,24 +1,24 @@
 require 'spec_helper'
 
-describe BatotoRipper::Comic, vcr: true, record: :once do
-  subject(:comic) { BatotoRipper::Comic.new url: url }
+describe MangaEdenRipper::Comic, vcr: true, record: :once do
+  subject(:comic) { MangaEdenRipper::Comic.new url: url }
   let(:url) do
     'https://bato.to/comic/_/comics/100-is-too-cheap-r3893'
   end
 
   describe '.applies?' do
     it 'accepts valid urls' do
-      expect(BatotoRipper::Comic.applies?(url)).to be true
+      expect(MangaEdenRipper::Comic.applies?(url)).to be true
     end
     it 'rejects invalid urls' do
-      expect(BatotoRipper::Comic.applies?('http://google.com')).to be false
-      expect(BatotoRipper::Comic.applies?('batoto')).to be false
+      expect(MangaEdenRipper::Comic.applies?('http://google.com')).to be false
+      expect(MangaEdenRipper::Comic.applies?('batoto')).to be false
     end
   end
 
   describe '#chapters' do
     it 'creates a Chapter' do
-      expect(comic.chapters.first).to be_a BatotoRipper::Chapter
+      expect(comic.chapters.first).to be_a MangaEdenRipper::Chapter
     end
 
     context 'There is a single chapter' do

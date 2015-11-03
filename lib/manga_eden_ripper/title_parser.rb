@@ -1,4 +1,4 @@
-module BatotoRipper
+module MangaEdenRipper
   class TitleNotMatchedError < StandardError
   end
 

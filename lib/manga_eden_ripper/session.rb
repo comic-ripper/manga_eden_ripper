@@ -1,6 +1,6 @@
 require 'mechanize'
 
-module BatotoRipper
+module MangaEdenRipper
   class Session
     attr_reader :agent
     extend Forwardable

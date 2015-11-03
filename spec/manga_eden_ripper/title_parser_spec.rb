@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe BatotoRipper::TitleParser do
-  subject(:parser) { BatotoRipper::TitleParser.new(title) }
+describe MangaEdenRipper::TitleParser do
+  subject(:parser) { MangaEdenRipper::TitleParser.new(title) }
   let(:title) { 'Ch. 1: A Simple Title.' }
 
   describe '#chapter' do

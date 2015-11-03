@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'batoto_ripper/version'
+require 'manga_eden_ripper/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'batoto_ripper'
-  spec.version       = BatotoRipper::VERSION
+  spec.name          = 'manga_eden_ripper'
+  spec.version       = MangaEdenRipper::VERSION
   spec.authors       = ['Eric Nelson']
   spec.email         = ['eric@clean-logix.com']
-  spec.summary       = 'Batoto manga ripping library'
+  spec.summary       = 'manga eden manga ripping library'
   spec.description   = <<DESC
 This gem is intended to be used with my ripper application as a way
 to abstract different comic sources away from the models that contain them

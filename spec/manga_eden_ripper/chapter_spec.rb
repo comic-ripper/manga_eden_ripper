@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe BatotoRipper::Chapter, vcr: true, record: :once do
-  subject(:chapter) { BatotoRipper::Chapter.new url: url, text: link_text }
+describe MangaEdenRipper::Chapter, vcr: true, record: :once do
+  subject(:chapter) { MangaEdenRipper::Chapter.new url: url, text: link_text }
   let(:link_text) { 'Ch.0: [Oneshot]' }
   let(:url) { 'http://bato.to/reader#4aba6fc934a8d6c2' }
 
   describe '#pages' do
     it 'creates a Page' do
-      expect(chapter.pages.first).to be_a BatotoRipper::Page
+      expect(chapter.pages.first).to be_a MangaEdenRipper::Page
     end
 
     it 'has the correct number of pages' do

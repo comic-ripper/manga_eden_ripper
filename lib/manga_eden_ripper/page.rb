@@ -1,4 +1,4 @@
-module BatotoRipper
+module MangaEdenRipper
   class Page
     attr_accessor :url, :image_url
     def initialize(url:, image_url:nil, **_args)
@@ -11,7 +11,7 @@ module BatotoRipper
     end
 
     def image
-      @image ||= BatotoRipper.session.get image_url
+      @image ||= MangaEdenRipper.session.get image_url
     end
 
     def chapter_id
@@ -40,7 +40,7 @@ module BatotoRipper
     private
 
     def page
-      @page ||= BatotoRipper.session.get "https://bato.to/areader?id=#{chapter_id}&p=#{number.to_i}", [], url
+      @page ||= MangaEdenRipper.session.get "https://bato.to/areader?id=#{chapter_id}&p=#{number.to_i}", [], url
     end
 
     def document
