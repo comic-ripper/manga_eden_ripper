@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 require 'thread'
 module MangaEdenRipper
   class Directory
-    DIRECTORY_URL = 'https://www.mangaeden.com/api/list/0/'
+    DIRECTORY_URL = 'https://www.mangaeden.com/api/list/0/'.freeze
 
     def initialize(db:nil, alias_index:nil)
       @db = db

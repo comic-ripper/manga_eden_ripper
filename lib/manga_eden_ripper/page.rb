@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 module MangaEdenRipper
   class Page
-    IMAGE_BASE = 'https://cdn.mangaeden.com/mangasimg/'
+    IMAGE_BASE = 'https://cdn.mangaeden.com/mangasimg/'.freeze
 
     attr_accessor :number, :image_path
     def initialize(number:, image_path:, **_args)

@@ -1,7 +1,10 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  TargetRubyVersion: 2.3
+
 Metrics/LineLength:
-  Max: 80
+  Max: 100
   AllowURI: true
   URISchemes:
     - http

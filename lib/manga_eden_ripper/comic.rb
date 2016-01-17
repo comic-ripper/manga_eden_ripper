@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'nokogiri'
 require 'uri'
 
@@ -5,9 +6,9 @@ module MangaEdenRipper
   class Comic
     VALID_HOSTS = [
       /mangaeden.com\z/
-    ]
+    ].freeze
 
-    MANGA_INFO_URL = 'https://www.mangaeden.com/api/manga/:id'
+    MANGA_INFO_URL = 'https://www.mangaeden.com/api/manga/:id'.freeze
 
     def self.applies?(url)
       uri = URI.parse(url)

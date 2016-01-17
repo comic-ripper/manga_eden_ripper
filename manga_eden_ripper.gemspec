@@ -21,7 +21,7 @@ DESC
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '~> 2.2'
+  spec.required_ruby_version = '>= 2.3'
 
   spec.add_runtime_dependency 'mechanize'
   spec.add_runtime_dependency 'nokogiri'

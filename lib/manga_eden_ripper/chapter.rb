@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 module MangaEdenRipper
   class Chapter
-    CHAPTER_URL = 'https://www.mangaeden.com/api/chapter/:id/'
+    CHAPTER_URL = 'https://www.mangaeden.com/api/chapter/:id/'.freeze
 
     attr_accessor :number, :name, :id
 
